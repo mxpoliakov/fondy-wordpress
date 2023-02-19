@@ -96,6 +96,7 @@ abstract class WC_Fondy_Payment_Gateway extends WC_Payment_Gateway
     {
         $params = [
             'order_id' => $this->createFondyOrderID($order),
+            'order_desc' => 'Donation',
             'amount' => (int)round($order->get_total() * 100),
             'currency' => $order->get_order_currency(),
             'lang' => $this->getLanguage(),
