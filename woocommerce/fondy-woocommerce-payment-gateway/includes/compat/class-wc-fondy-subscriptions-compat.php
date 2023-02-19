@@ -131,7 +131,7 @@ class WC_Fondy_Subscriptions_Compat
                 'amount' => $amount,
                 'rectoken' => $token[0]['token'],
                 'sender_email' => $renewal_order->get_billing_email(),
-                'currency' => get_woocommerce_currency(),
+                'currency' => $renewal_order->get_order_currency(),
                 'order_desc' => sprintf(
                     __('Recurring payment for: %s', 'fondy-woocommerce-payment-gateway'),
                     $renewal_order->get_order_number()
