@@ -96,9 +96,8 @@ abstract class WC_Fondy_Payment_Gateway extends WC_Payment_Gateway
     {
         $params = [
             'order_id' => $this->createFondyOrderID($order),
-            'order_desc' => __('Order №: ', 'fondy-woocommerce-payment-gateway') . $order->get_id(),
             'amount' => (int)round($order->get_total() * 100),
-            'currency' => get_woocommerce_currency(),
+            'currency' => $order->get_order_currency(),
             'lang' => $this->getLanguage(),
             'sender_email' => $this->getEmail($order),
             'response_url' => $this->getResponseUrl($order),
@@ -263,7 +262,7 @@ abstract class WC_Fondy_Payment_Gateway extends WC_Payment_Gateway
 
         $reservationData = [
             'customer_zip' => $orderDataBilling['postcode'],
-            'customer_name' => $orderDataBilling['first_name'] . ' ' . $orderDataBilling['last_name'],
+            'customer_name' => $orderDataBilling['name'],
             'customer_address' => $orderDataBilling['address_1'] . ' ' . $orderDataBilling['city'],
             'customer_state' => $orderDataBilling['state'],
             'customer_country' => $orderDataBilling['country'],
