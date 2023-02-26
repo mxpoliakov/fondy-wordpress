@@ -263,7 +263,7 @@ abstract class WC_Fondy_Payment_Gateway extends WC_Payment_Gateway
 
         $reservationData = [
             'customer_zip' => $orderDataBilling['postcode'],
-            'customer_name' => $orderDataBilling['name'],
+            'customer_name' => $orderDataBilling['first_name'] . ' ' . $orderDataBilling['last_name'],
             'customer_address' => $orderDataBilling['address_1'] . ' ' . $orderDataBilling['city'],
             'customer_state' => $orderDataBilling['state'],
             'customer_country' => $orderDataBilling['country'],
